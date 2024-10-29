@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <style>
+        #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background-color: #E3E6F3;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    #header .logo {
+      height: 59px;
+      width: 95px;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+    /* ////banner///////////////   */
+    .shopbanner img {
+      height: 110vh;
+      width: 100%;
+      align-items: center;
+
+    }
+
+    /* /////shopproduct/// */
+    #product1 {
+      text-align: center;
+    }
+
+    #product1 .pro-container {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      flex-wrap: wrap;
+    }
+
+
+    #product1 .pro {
+      width: 23%;
+      min-width: 250px;
+      padding: 10px 12px;
+      border: 1px solid #cce7d0;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+      margin: 15px 0;
+      transition: 0.2s ease;
+      position: relative;
+
+    }
+
+    #product1 .pro:hover {
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    #product1 .pro img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    #product1 .pro .des {
+      text-align: start;
+      padding: 10px 0;
+    }
+
+    #product1 .pro .des span {
+
+      color: #606060;
+      font-size: 12px;
+    }
+
+    #product1 .pro .des h5 {
+      padding-top: 7px;
+      color: #1a1a1a;
+      font-size: 14px;
+    }
+
+    #product1 .pro .des i {
+      font-size: 12px;
+      color: rgb(243, 181, 25);
+    }
+
+    #product1 .pro .des h4 {
+      padding-top: 7px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #088178;
+    }
+
+    #product1 .pro .cart {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50px;
+      background-color: #cce7d0;
+      font-weight: 500;
+      color: black;
+      border: 1px solid #cce7d0;
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+
+
+    }
+
+
+    /* /////footer//// */
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer .col {
+      display: flex;
+
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    footer .footlogo {
+      margin-bottom: 30px;
+      height: 43px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 0 0 8px 0;
+    }
+
+    footer a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    footer .follow {
+      margin-top: 20px;
+
+    }
+
+    footer .follow i {
+      color: #465b52;
+      padding-right: 4px;
+      cursor: pointer;
+
+    }
+
+    footer .install .row img {
+      border: 1px solid #088178;
+      border-radius: 6px;
+
+    }
+
+    footer .install img {
+      margin: 10px 0 15px 0;
+    }
+
+    footer .follow i:hover,
+    footer a:hover {
+      color: #088178;
+
+    }
+
+    footer .copyright {
+      width: 100%;
+      text-align: center;
+
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.container {
+    max-width: 144rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.products {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+.product {
+    background: #f9f8fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product img {
+    width: 100%;
+}
+
+.product-content {
+    padding: 1rem 2rem;
+}
+
+.product .product-title {
+    font-size: 2rem;
+}
+
+.product-description {
+    text-align: justify;
+}
+
+.product-title,
+.product-price-container,
+.product-description,
+.product-category {
+    padding: 0.5rem 0;
+}
+
+.product-price-container {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-to-cart {
+    background: rgb(16, 8, 69);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: white;
+    border-radius: 1rem;
+}
+
+.add-to-cart ion-icon {
+    font-size: 3rem;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ///////////////////////////////////////header section////////////////////////////// -->
+  <section id="header">
+    <a href="homepage.html"><img src="img/logo.png" class="logo" alt=""></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a class="active" href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="loginsignup.html">Login</a></li>
+        <li id="lg-bag"><a href="cart.html">Cart</a></li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-times"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <!-- /////shop banner section////// -->
+  <section class="shopbanner">
+    <img src="shopbanner.png" alt="">
+  </section>
+
+  <!-- /////product section///// -->
+  <div class="container">
+    <div class="products">
+    </div>
+  </div>
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+ 
+  <!-- ///pagination//// -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled" id="previous-page">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <div id="page-numbers"></div>
+      <li class="page-item" id="next-page"> 
+        <a class="page-link" href="#" >Next</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- //////////////////footer section////////////////////////////// -->
+ <footer class="section-p1">
+    <div class="col">
+        <img  class="footlogo" src="img/logo.png" alt="footlogo">
+        <h4>Contact</h4>
+        <p><strong>Address:</strong>lorm euhfodojf ofhiof fhsuf</p>
+        <p><strong>Phone:</strong>+075645003740 /(+91)8743589947</p>
+        <p><strong>Hours:</strong>10:00 - 18:00 , Mon -Sat</p>
+      <div class="follows">
+        <h4>Follow Us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-pinterest"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policies</a>
+        <a href="#">Terms And Conditions</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store Or Google Play</p>
+        <div class="row">
+            <img src="img/pay/app.jpg" alt="">
+            <img src="img/pay/play.jpg" alt="">
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="">
+    </div>
+
+    <div class="copyright">
+        <p>@ 2024, Rohit etc - HTML CSS Shopping Template</p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let products = document.querySelector('.products');
+      let currentPage = 1;
+      let productsPerPage = 10;
+
+      async function fetchProducts(url) {
+        try {
+          let data = await fetch(url);
+          let response = await data.json();
+
+          // Calculate the start and end index of products to display
+          let startIndex = (currentPage - 1) * productsPerPage;
+          let endIndex = startIndex + productsPerPage;
+          let displayedProducts = response.slice(startIndex, endIndex);
+
+          // Clear the previous products
+          products.innerHTML = '';
+
+          for (let i = 0; i < displayedProducts.length; i++) {
+            let description = displayedProducts[i].description;
+            let title = displayedProducts[i].title;
+            products.innerHTML += `
+              <div class="product">
+                <img src="${displayedProducts[i].image}" alt="${displayedProducts[i].category}" class="product-img">
+                <div class="product-content">
+                  <h2 class="product-title">${title.length > 18 ? title.substring(0, 18).concat(' ...') : title}</h2>
+                  <h4 class="product-category">${displayedProducts[i].category}</h4>
+                  <p class="product-description">${description.length > 80 ? description.substring(0, 80).concat(' ...more') : description}</p>
+                  <div class="product-price-container">
+                    <h3 class="product-price">$${displayedProducts[i].price}</h3>
+                    <a href="#" data-productid="${displayedProducts[i].id}" class="add-to-cart"><ion-icon name="cart-outline"></ion-icon></a>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+
+          // Add pagination
+          let totalPages = Math.ceil(response.length / productsPerPage);
+          let pageNumbers = '';
+          for (let i = 1; i <= totalPages; i++) {
+            pageNumbers += `<li class="page-item${i === currentPage ? ' active' : ''}"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+          }
+          document.getElementById('page-numbers').innerHTML = pageNumbers;
+
+          // Add event listeners to page numbers
+          document.querySelectorAll('.page-link').forEach(pageLink => {
+            pageLink.addEventListener('click', function(e) {
+              e.preventDefault();
+              currentPage = parseInt(this.getAttribute('data-page'));
+              fetchProducts(url);
+            });
+          });
+
+          // Disable/enable previous and next buttons based on current page
+          document.getElementById('previous-page').classList.toggle('disabled', currentPage === 1);
+          document.getElementById('next-page').classList.toggle('disabled', currentPage === totalPages);
+
+          // Add event listeners to "Add to Cart" buttons
+          document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              let productId = this.getAttribute('data-productid');
+              let product = displayedProducts.find(p => p.id == productId);
+              
+              // Retrieve cart from localStorage or initialize if it doesn't exist
+              let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+              // Add product to cart
+              cart.push(product);
+
+              // Store updated cart in localStorage
+              localStorage.setItem('cart', JSON.stringify(cart));
+
+              // Redirect to cart page
+              window.location.href = 'cart.html';
+            });
+          });
+
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      fetchProducts('https://fakestoreapi.com/products');
+    });
+  </script>
+
+</body>
+
+</html>

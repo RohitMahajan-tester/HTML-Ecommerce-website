@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About SHOPEKR</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+  <style>
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background-color: #E3E6F3;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    #header .logo {
+      height: 59px;
+      width: 95px;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer .col {
+      display: flex;
+
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    footer .footlogo {
+      margin-bottom: 30px;
+      height: 43px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 0 0 8px 0;
+    }
+
+    footer a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    footer .follow {
+      margin-top: 20px;
+
+    }
+
+    footer .follow i {
+      color: #465b52;
+      padding-right: 4px;
+      cursor: pointer;
+
+    }
+
+    footer .install .row img {
+      border: 1px solid #088178;
+      border-radius: 6px;
+
+    }
+
+    footer .install img {
+      margin: 10px 0 15px 0;
+    }
+
+    footer .follow i:hover,
+    footer a:hover {
+      color: #088178;
+
+    }
+
+    footer .copyright {
+      width: 100%;
+      text-align: center;
+
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: center;
+      /* Center horizontally */
+      align-items: center;
+      /* Center vertically */
+      height: 500px;
+      background-color: #017bd4;
+    }
+
+    .aboutimg {
+      flex: 1;
+      /* Adjust this value to control the width */
+      margin-right: 20px;
+      /* Optional: Adds space between the image and the heading */
+    }
+
+    .headabout {
+      flex: 1;
+      /* Adjust this value to control the width */
+      color: white;
+      /* Set text color to ensure visibility against the blue background */
+      text-align: center;
+      /* Center the text within the element */
+    }
+
+    .headabout h3 {
+      color: yellow;
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .headabout a {
+      margin-top: 20px;
+      /* Add some space between the paragraph and the button */
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: blue;
+      background-color: yellow;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .headabout a:hover {
+      background-color: orange;
+      /* Optional: Change background color on hover */
+    }
+
+    .ethics-container {
+      text-align: center;
+      background-color: lightgrey;
+      /* Optional: Adds a background color to the container */
+      padding: 20px;
+      height: 800px;
+    }
+
+    .ethics-container h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 3%;
+    }
+
+    .ethics-img {
+      margin: 20px 0;
+      background: linear-gradient(45deg, #017bd4, #ffcd00);
+      background-size: 90% 25%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .ethics-img img {
+      display: block;
+      width: 75%;
+      /* Adjust this value to control the image width */
+      height: 600px;
+      margin: 0 auto;
+      /* Center the image horizontally */
+      position: relative;
+    }
+
+    .ethics-container img {
+      max-width: 100%;
+      height: 400px;
+
+    }
+
+    .ethics-container p {
+      margin: 20px 0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #848484;
+      padding: 2% 20%;
+    }
+
+    .ethics-container a {
+      display: inline-block;
+      margin-top: 20px;
+
+
+      font-weight: bold;
+
+      background-color: blue;
+      text-decoration: none;
+      border-radius: 5px;
+      color: #fff;
+      background: #007bd4;
+      font-size: 16px;
+      text-transform: uppercase;
+      width: auto;
+      line-height: 2;
+      padding: 1% 4%;
+    }
+
+    .ethics-container a:hover {
+      background-color: darkblue;
+
+    }
+
+    .culture-container {
+      background-image: url("img/about/banner.png");
+      background-repeat: no-repeat;
+      background-size: auto, 100%;
+      background-position: bottom right, top;
+      padding: 10% 50% 10% 10%;
+      color: #fff;
+      height: 200px;
+
+
+    }
+
+    .culture-container h1 {
+      color: #ffde00;
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .culture-container p {
+
+      line-height: 1.7;
+
+    }
+
+    .culture-container a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bd4;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .inovation-container {
+      display: flex;
+      justify-content: center;
+      /* Center horizontally */
+      align-items: center;
+      /* Center vertically */
+      height: 800px;
+      /* Increased height */
+      padding: 20px;
+      text-align: center;
+      /* Center text within elements */
+    }
+
+    .invoimg {
+      flex: 1;
+      margin-right: 20px;
+      /* Add margin to the right to create space between the image and content */
+    }
+
+    .invoimg img {
+      width: 600px;
+      /* Set width */
+      height: 500px;
+      /* Set height */
+      object-fit: cover;
+      /* Ensure the image covers the specified dimensions without distortion */
+    }
+
+    .inovation-content {
+      flex: 2;
+
+    }
+
+    .inovation-container h3 {
+      font-size: 24px;
+      /* margin-bottom: 5px; */
+    }
+
+    .inovation-container h1 {
+      color: #000;
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .inovation-container p {
+      margin-bottom: 20px;
+      color: #465b52;
+
+    }
+
+    .inovation-container a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bd4;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .Sustainability-container {
+      text-align: center;
+      background-color: lightgrey;
+      /* Optional: Adds a background color to the container */
+      padding: 20px;
+      height: 800px;
+    }
+
+    .Sustainability-container h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 3%;
+    }
+
+    .sustainbility-img {
+      margin: 20px 0;
+      background: linear-gradient(45deg, #017bd4, #ffcd00);
+      background-size: 90% 25%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .sustainbility-img img {
+      display: block;
+      width: 75%;
+      /* Adjust this value to control the image width */
+      height: 600px;
+      margin: 0 auto;
+      /* Center the image horizontally */
+      position: relative;
+    }
+
+    .Sustainability-container img {
+      max-width: 100%;
+      height: 400px;
+
+    }
+
+    .Sustainability-container p {
+      margin: 20px 0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #848484;
+      padding: 2% 20%;
+    }
+
+    .Sustainability-container a {
+      display: inline-block;
+      margin-top: 20px;
+
+
+      font-weight: bold;
+
+      background-color: blue;
+      text-decoration: none;
+      border-radius: 5px;
+      color: #fff;
+      background: #007bd4;
+      font-size: 16px;
+      text-transform: uppercase;
+      width: auto;
+      line-height: 2;
+      padding: 1% 4%;
+    }
+
+    .Sustainability-container a:hover {
+      background-color: darkblue;
+
+    }
+
+
+    .newsletters-containers {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .newsmainhead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .newsmainhead h1 {
+      font-size: 32px;
+      color: #333;
+    }
+
+    .newsmainhead h1::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background-color: #ffde00;
+      margin-top: 8px;
+    }
+
+    .text-right a {
+      font-size: 16px;
+      color: #fff;
+      text-decoration: none;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .text-right a:hover {
+      background-color: #0056b3;
+    }
+
+    .newsroom-left {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .newsroom-left img {
+      width: 70%;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .newsroom-next {
+      width: 28%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      align-self: flex-start;
+    }
+
+    .next h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .newsroom-right {
+            margin-bottom: 20px;
+            height: 100px;
+        }
+
+        .newsroom-right-content {
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .newsroom-right-content p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .newsroom-right-content p:last-child {
+            font-size: 12px;
+            color: #999;
+        }
+
+  </style>
+</head>
+
+<body>
+  <section id="header">
+
+
+    <a href="homepage.html"><img src="img/logo.png" class="logo" alt=""></a>
+
+
+    <div>
+      <ul id="navbar">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a class="active" href="about.html">about</a></li>
+       
+        <li><a href="loginsignup.html">Login</a></li>
+        <li id="lg-bag"><a href="cart.html">Cart</a></li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+
+      <a href="cart.html"><i class="far fa-times"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+  </section>
+
+  <section class="about-container">
+    <div class="aboutimg">
+      <img src="img/about/flipkart-group.jpg" alt="" style="width: 600px;">
+
+    </div>
+    <div class="headabout">
+      <h3>
+        The Shopekr Group
+      </h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque dolores impedit aliquam neque velit mollitia
+        dignissimos sunt amet. Mollitia recusandae cupiditate accusamus sequi officia obcaecati quibusdam corporis
+        Beatae, excepturi perspiciatis.
+      </p>
+      <a class="button" href="#">About Us</a>
+    </div>
+
+  </section>
+
+  <section class="ethics-container">
+    <h1>Ethics And Compliances</h1>
+    <div class="ethics-img">
+      <img src="img/about/ethics.jpg" alt="">
+    </div>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, eos unde quasi accusantium expedita cupiditate
+      necessitatibus eius deleniti nobis voluptates ea tempora eveniet cumque aperiam modi perspiciatis hic. Iusto,
+      iste?</p>
+    <a href="#">Know More</a>
+
+  </section>
+
+  <section class="culture-container">
+    <h1>Shopekr Culture</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, quae. Eligendi cum soluta quos aspernatur
+      totam nulla laudantium magnam vel harum libero nesciunt exercitationem, asperiores quidem officiis, aliquid omnis
+      tempora.</p>
+    <a href="#">Explore Our Culture</a>
+  </section>
+
+  <section class="inovation-container">
+    <div class="invoimg">
+      <img src="img/about/innovations.png" alt="">
+    </div>
+    <div class="inovation-content">
+
+      <h3>TECHNOLOGY AT Shopekr</h3>
+
+      <h1>INNOVATION</h1>
+      <p>Flipkart technology drives path-breaking, customer-focused innovation that makes high quality products
+        accessible
+        to Indian shoppers, besides making the online shopping experience convenient, intuitive and seamless.</p>
+      <a href="#">Read More</a>
+    </div>
+
+  </section>
+
+
+  <section class="Sustainability-container">
+    <h1>Ethics And Compliances</h1>
+    <div class="sustainbility-img">
+      <img src="img/about/sustainbility.jpg" alt="">
+    </div>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque, eos unde quasi accusantium expedita cupiditate
+      necessitatibus eius deleniti nobis voluptates ea tempora eveniet cumque aperiam modi perspiciatis hic. Iusto,
+      iste?</p>
+    <a href="#">Know More</a>
+
+
+  </section>
+  <section class="col-md-12 col-sm-12 newsletters-containers">
+    <div class="col-md-12 col-sm-12 newsmainhead">
+      <div class="col-md-8 col-sm-8">
+        <h1>NEWSROOMS</h1>
+      </div>
+      <div class="col-md-4 col-sm-4 text-right">
+        <a href="#">View all news</a>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 newsroom-left">
+      <div class="col-md-9 col-sm-12">
+        <img src="img/about/newsroom.jpeg" alt="">
+      </div>
+      <div class="col-md-3 col-sm-12 newsroom-next">
+        <div class="col-md-12 col-sm-12 next">
+          <h3>NEXT</h3>
+        </div>
+        <div class="col-md-12 col-sm-3 newsroom-right">
+          <div class="newsroom-right-content">
+            <p>Flipkart’s VIP Subscription Program is now available for customers in Ahmedabad, Bhubaneswar, Coimbatore,
+              Guwahati, Hyderabad, Patna, Pune & Ranchi</p>
+            <p>April 17, 2024</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-3 newsroom-right">
+          <div class="newsroom-right-content">
+            <p>Flipkart announces the 6th edition of Super Cooling Days 2024 – An annual sale event for cooling home
+              appliances</p>
+            <p>April 16, 2024</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-3 newsroom-right">
+          <div class="newsroom-right-content">
+            <p>Flipkart opens its grocery fulfillment center in Hubli, Karnataka; offers next-day grocery deliveries to
+              consumers</p>
+            <p>April 11, 2024</p>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-3 newsroom-right">
+          <div class="newsroom-right-content">
+            <p>Flipkart opens its grocery fulfillment center in Visakhapatnam, Andhra Pradesh; enabling next-day grocery
+              deliveries for consumers</p>
+            <p>April 10, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img class="footlogo" src="img/logo.png" alt="footlogo">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong>lorm euhfodojf ofhiof fhsuf</p>
+      <p><strong>Phone:</strong>+075645003740 /(+91)8743589947</p>
+      <p><strong>Hours:</strong>10:00 - 18:00 , Mon -Sat</p>
+      <div class="follows">
+        <h4>follows Us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-pinterest"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Polices</a>
+      <a href="#">Terms And Conditions</a>
+      <a href="#">Contact Us</a>
+
+    </div>
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+
+    </div>
+    <div class="col install">
+      <h4>Install App</h4>
+      <p>From App Store Or Google Play</p>
+      <div class="row">
+        <img src="img/pay/app.jpg" alt="">
+        <img src="img/pay/play.jpg" alt="">
+
+
+      </div>
+      <p>Secured Payment Gateways</p>
+      <img src="img/pay/pay.png" alt="">
+    </div>
+
+    <div class="copyright">
+      <p>@ 2024 ,rohit etc- HTML CSS Shooping temp</p>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

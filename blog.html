@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      height: 50px;
+     
+      
+    }
+
+    .blog-section {
+      width: 85%;
+      margin: 20px auto;
+      
+    }
+
+    .blog-section .title {
+      width: 60%;
+      text-align: center;
+      margin: auto;
+      
+    }
+
+    .blog-section .title h2 {
+      font-size: 40px;
+      color: #357ca6;
+      text-transform: uppercase;
+      margin-top: 50px;
+      color: #357ca6;
+    }
+
+    .blog-section .title p {
+      font-size: 18px;
+      color: #7e7e7e;
+      margin-top: 20px;
+
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 50px;
+      margin: 25px auto;
+
+    }
+
+    .cards .card {
+      width: 100%;
+      position: relative;
+
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+
+    }
+
+    .content {
+      padding: 15px 20px;
+    }
+
+    .content h4 {
+      font-size: 24px;
+      color: #222;
+      font-weight: 500;
+    }
+
+    .content p {
+      color: #7e7e7e;
+      font-size: 15px;
+    }
+
+    .content a {
+      text-decoration: none;
+      color: #fff;
+      margin-top: 12px;
+      display: inline-block;
+      background-color: #3a706a;
+      padding: 8px 15px;
+    }
+
+    .card.posted-date {
+      position: absolute;
+      top: 0;
+      Left: 0;
+      display: inline-block;
+      background-color: #ada62b;
+      padding: 6px 15px;
+
+    }
+
+    @media screen and (max-width: 992px) {
+
+      .cards {
+        grid-template-columns: repeat (2, 1fr);
+
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .cards {
+        grid-template-columns: 1fr;
+
+      }
+    }
+
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background-color: #E3E6F3;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    #header .logo {
+      height: 59px;
+      width: 95px;
+    }
+
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background-color: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    footer .col {
+      display: flex;
+
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    footer .footlogo {
+      margin-bottom: 30px;
+      height: 43px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+
+    footer p {
+      font-size: 13px;
+      margin-bottom: 0 0 8px 0;
+    }
+
+    footer a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    footer .follow {
+      margin-top: 20px;
+
+    }
+
+    footer .follow i {
+      color: #465b52;
+      padding-right: 4px;
+      cursor: pointer;
+
+    }
+
+    footer .install .row img {
+      border: 1px solid #088178;
+      border-radius: 6px;
+
+    }
+
+    footer .install img {
+      margin: 10px 0 15px 0;
+    }
+
+    footer .follow i:hover,
+    footer a:hover {
+      color: #088178;
+
+    }
+
+    footer .copyright {
+      width: 100%;
+      text-align: center;
+    }
+
+    .bodyblog {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 250vh;
+      margin: 0;
+      background-color: #f8f9fa;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 1080px;
+      margin: 15px;
+     
+    }
+
+    .card {
+      flex: 1 1 calc(33.333% - 1rem);
+      box-sizing: border-box;
+      max-width: 18rem;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ///////////////////////////////////////header section////////////////////////////// -->
+  <section id="header">
+
+
+    <a href="homepage.html"><img src="img/logo.png" class="logo" alt=""></a>
+
+
+    <div>
+      <ul id="navbar">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a class="active" href="blog.html">Blog</a></li>
+        <li><a href="about.html">about</a></li>
+        <li><a href="loginsignup.html">Login</a></li>
+        <li id="lg-bag"><a href="cart.html">Cart</a></li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+
+      <a href="cart.html"><i class="far fa-times"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+
+    </div>
+  </section>
+
+  <div class="container">
+
+    <div class="blog-section">
+
+      <div class="title">
+        <h2>Blog</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, se
+
+          do eiusmod</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="bodyblog">
+    <div class="card-container">
+      <div class="card">
+        <img src="img/blog/b1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b7.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b7.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btaan-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/blog/b7.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- /////////////////////////////////footer section/////////////////// -->
+
+  <footer class="section-p1">
+    <div class="col">
+      <img class="footlogo" src="img/logo.png" alt="footlogo">
+      <h4>Contact</h4>
+      <p><strong>Address:</strong>lorm euhfodojf ofhiof fhsuf</p>
+      <p><strong>Phone:</strong>+075645003740 /(+91)8743589947</p>
+      <p><strong>Hours:</strong>10:00 - 18:00 , Mon -Sat</p>
+      <div class="follows">
+        <h4>follows Us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-pinterest"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Polices</a>
+      <a href="#">Terms And Conditions</a>
+      <a href="#">Contact Us</a>
+
+    </div>
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+
+    </div>
+    <div class="col install">
+      <h4>Install App</h4>
+      <p>From App Store Or Google Play</p>
+      <div class="row">
+        <img src="img/pay/app.jpg" alt="">
+        <img src="img/pay/play.jpg" alt="">
+
+
+      </div>
+      <p>Secured Payment Gateways</p>
+      <img src="img/pay/pay.png" alt="">
+    </div>
+
+    <div class="copyright">
+      <p>@ 2024 ,rohit etc- HTML CSS Shooping temp</p>
+    </div>
+
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const readMoreButtons = document.querySelectorAll('.read-more');
+
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          alert("Read more functionality coming soon!");
+        });
+      });
+    });
+
+  </script>
+</body>
+
+</html>
